@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var Bear= require('./models/bear');
+var Bear= require('./app/models/bear');
 
 //let app use bodyParser() --lets us get data from a POST
 app.use(bodyParser.urlencoded({extended : true}));

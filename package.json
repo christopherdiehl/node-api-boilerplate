@@ -4,10 +4,15 @@
   "description": "The backend for the serono question app",
   "main": "index.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "csurf": "^1.9.0",
     "express": "^4.14.0",
     "mongoose": "^4.7.6",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "winston": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {

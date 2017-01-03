@@ -1,0 +1,31 @@
+/*
+ *Passport Local Configuration
+ *Module Dependencies
+*/
+var mongoose = require('mongoose');
+var LocalStrategy = require('passport-local').Strategy;
+var User = mongoose.model('User');
+
+/*
+ *Expose
+*/
+module.exports = new LocalStrategy({
+  username: 'email',
+  password: 'password'
+},
+  function(email,password,done){
+    var options = {
+      criteria: {email: email}
+    };
+    User.load(options,function(err,user) {
+      if(err) return done(err);
+      if(!user) {
+        return done(null,false,{message:'Unkown user'});
+      }
+      if(!user.authenticate(password)) {
+        return done(null,false, {message:'Invalid Password'});
+      }
+      return done(null,user);
+    });
+  }
+);
