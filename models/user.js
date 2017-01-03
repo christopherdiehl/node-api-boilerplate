@@ -32,4 +32,11 @@ UserSchema.pre('save', function(callback) ***REMOVED***
   ***REMOVED***);
 ***REMOVED***);
 
+UserSchema.methods.verifyPassword = function(password, cb) ***REMOVED***
+  bcrypt.compare(password, this.password, function(err, isMatch) ***REMOVED***
+    if (err) return cb(err);
+    cb(null, isMatch);
+  ***REMOVED***);
+***REMOVED***;
+
 module.exports = mongoose.model('User',UserSchema);
