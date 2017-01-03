@@ -1,0 +1,18 @@
+***REMOVED***
+  "name": "equitas",
+  "version": "1.0.0",
+  "description": "The backend for the serono question app",
+  "main": "index.js",
+  "dependencies": ***REMOVED***
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.6",
+    "passport": "^0.3.2"
+  ***REMOVED***,
+  "devDependencies": ***REMOVED******REMOVED***,
+  "scripts": ***REMOVED***
+    "test": "echo \"Error: no test specified\" && exit 1"
+  ***REMOVED***,
+  "author": "Christopher Diehl and Robert Young",
+  "license": "ISC"
+***REMOVED***
