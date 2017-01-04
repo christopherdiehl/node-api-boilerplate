@@ -1,1 +1,1 @@
-#Serono Backend
+#Node REST API Boilerplate
