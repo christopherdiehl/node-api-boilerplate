@@ -21,7 +21,6 @@ exports.getUsers = function(req, res) ***REMOVED***
   User.find(function(err, users) ***REMOVED***
     if (err)
       res.send(err);
-
     res.json(users);
   ***REMOVED***);
 ***REMOVED***;

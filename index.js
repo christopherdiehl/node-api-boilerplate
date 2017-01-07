@@ -28,4 +28,5 @@ router.route('/users')
   .get(authController.isAuthenticated,userController.getUsers);
 
 app.use('/api',router);
+console.log('Listening on '+port);
 app.listen(port);
