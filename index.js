@@ -22,6 +22,9 @@ router.get('/', function(req,res) ***REMOVED***
   res.json(***REMOVED***message: 'welcome to our api!'***REMOVED***);
 ***REMOVED***);
 
+router.route('/authenticate')
+  .post(authController.authenticate);
+  
 // Create endpoint handlers for /users
 router.route('/users')
   .post(userController.postUsers)
