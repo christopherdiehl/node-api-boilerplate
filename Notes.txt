@@ -1,0 +1,7 @@
+User schema:
+  -hash everyhting with bcrypt-nodejs
+
+Auth logic:
+  -login using /authenticate endpoint.
+  -once logged in you get a token
+  -that token is checked each time you try to access a protected route (exactly like what happens now)

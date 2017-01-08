@@ -22,6 +22,9 @@ router.get('/', function(req,res) {
   res.json({message: 'welcome to our api!'});
 });
 
+router.route('/authenticate')
+  .post(authController.authenticate);
+  
 // Create endpoint handlers for /users
 router.route('/users')
   .post(userController.postUsers)
