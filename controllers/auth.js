@@ -4,25 +4,26 @@ var BasicStrategy = require('passport-http').BasicStrategy;
 var User = require('../models/user');
 
 exports.authenticate = function(req, res) ***REMOVED***
-  function(username, password, callback) ***REMOVED***
-    User.findOne(***REMOVED*** username: username ***REMOVED***, function (err, user) ***REMOVED***
+  username = req.body.username;
+  password = req.body.password;
+  User.findOne(***REMOVED*** username: username ***REMOVED***, function (err, user) ***REMOVED***
+    if (err) ***REMOVED*** return callback(err); ***REMOVED***
+
+    // No user found with that username
+    if (!user) ***REMOVED*** return callback(null, false); ***REMOVED***
+
+    // Make sure the password is correct
+    user.verifyPassword(password, function(err, isMatch) ***REMOVED***
       if (err) ***REMOVED*** return callback(err); ***REMOVED***
 
-      // No user found with that username
-      if (!user) ***REMOVED*** return callback(null, false); ***REMOVED***
-
-      // Make sure the password is correct
-      user.verifyPassword(password, function(err, isMatch) ***REMOVED***
-        if (err) ***REMOVED*** return callback(err); ***REMOVED***
-
-        // Password did not match
-        if (!isMatch) ***REMOVED*** return callback(null, false); ***REMOVED***
-        // Success
-        //this is where I need to return an actual token
-        return res.json(***REMOVED***"message":"Success bruh!"***REMOVED***)
-      ***REMOVED***);
+      // Password did not match
+      if (!isMatch) ***REMOVED*** return callback(null, false); ***REMOVED***
+      // Success
+      //this is where I need to return an actual token
+      return res.json(***REMOVED***"message":"Success bruh!"***REMOVED***)
     ***REMOVED***);
-  ***REMOVED***
+  ***REMOVED***);
+
 ***REMOVED***
 
 //this is where I need to check the token
