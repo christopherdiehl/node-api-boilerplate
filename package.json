@@ -1,6 +1,6 @@
 ***REMOVED***
-  "name": "equitas",
-  "version": "1.0.0",
+  "name": "NodeApiBoilerplate",
+  "version": "0.0.0",
   "description": "The backend for the serono question app",
   "main": "index.js",
   "repository":"git@github.com:CHRISTOPHERDIEHL/NodeApiBoilerplate.git",
