@@ -17,7 +17,6 @@ passport.use(new BasicStrategy(
 
         // Password did not match
         if (!isMatch) { return callback(null, false); }
-
         // Success
         return callback(null, user);
       });
@@ -25,4 +24,4 @@ passport.use(new BasicStrategy(
   }
 ));
 
-exports.isAuthenticated = passport.authenticate('basic', { session : true });
+exports.isAuthenticated = passport.authenticate('basic', { session : false });
