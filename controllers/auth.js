@@ -17,7 +17,6 @@ passport.use(new BasicStrategy(
 
         // Password did not match
         if (!isMatch) ***REMOVED*** return callback(null, false); ***REMOVED***
-
         // Success
         return callback(null, user);
       ***REMOVED***);
@@ -25,4 +24,4 @@ passport.use(new BasicStrategy(
   ***REMOVED***
 ));
 
-exports.isAuthenticated = passport.authenticate('basic', ***REMOVED*** session : true ***REMOVED***);
+exports.isAuthenticated = passport.authenticate('basic', ***REMOVED*** session : false ***REMOVED***);

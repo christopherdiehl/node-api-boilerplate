@@ -24,3 +24,12 @@ exports.getUsers = function(req, res) ***REMOVED***
     res.json(users);
   ***REMOVED***);
 ***REMOVED***;
+
+exports.getUser = function(req, res) ***REMOVED***
+  User.findById(req.params.id, function(err,user) ***REMOVED***
+    if(err)
+      res.send(err);
+
+    res.json(user);
+  ***REMOVED***)
+***REMOVED***
