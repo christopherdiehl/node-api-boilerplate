@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "crypto": "0.0.3",
     "express": "^4.14.0",
