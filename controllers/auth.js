@@ -1,6 +1,4 @@
 // Load required packages
-const passport = require('passport');
-const BasicStrategy = require('passport-http').BasicStrategy;
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
