@@ -5,3 +5,7 @@ Auth logic:
   -login using /authenticate endpoint.
   -once logged in you get a token
   -that token is checked each time you try to access a protected route (exactly like what happens now)
+  -jwt.io
+
+Travis
+  -need to setup a tests folder to auto run tests.
