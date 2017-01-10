@@ -10,7 +10,7 @@ exports.postUsers = function(req, res) ***REMOVED***
 
   user.save(function(err) ***REMOVED***
     if (err)
-      res.send(err);
+      ***REMOVED***res.send(err);***REMOVED***
 
     res.json(***REMOVED*** message: 'Succesfully created new user!' ***REMOVED***);
   ***REMOVED***);
@@ -20,7 +20,7 @@ exports.postUsers = function(req, res) ***REMOVED***
 exports.getUsers = function(req, res) ***REMOVED***
   User.find(function(err, users) ***REMOVED***
     if (err)
-      res.send(err);
+      ***REMOVED***res.send(err);***REMOVED***
     res.json(users);
   ***REMOVED***);
 ***REMOVED***;
@@ -28,7 +28,7 @@ exports.getUsers = function(req, res) ***REMOVED***
 exports.getUser = function(req, res) ***REMOVED***
   User.findById(req.params.id, function(err,user) ***REMOVED***
     if(err)
-      res.send(err);
+      ***REMOVED***res.send(err);***REMOVED***
 
     res.json(user);
   ***REMOVED***)

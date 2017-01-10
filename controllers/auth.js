@@ -5,8 +5,8 @@ const expressJwt = require('express-jwt');
 const config = require('../config');
 
 exports.authenticate = function(req, res) ***REMOVED***
-  username = req.body.username;
-  password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
   User.findOne(***REMOVED*** username: username ***REMOVED***, function (err, user) ***REMOVED***
     if (err) ***REMOVED*** return callback(err); ***REMOVED***
 
@@ -14,14 +14,13 @@ exports.authenticate = function(req, res) ***REMOVED***
     if (!user) ***REMOVED*** return callback(null, false); ***REMOVED***
 
     // Make sure the password is correct
-    user.verifyPassword(password, function(err, isMatch) ***REMOVED***
+    return user.verifyPassword(password, function(err, isMatch) ***REMOVED***
       if (err) ***REMOVED*** return callback(err); ***REMOVED***
 
       // Password did not match
       if (!isMatch) ***REMOVED*** return callback(null, false); ***REMOVED***
       // Success
       //this is where I need to return an actual token
-      console.log(config.jwtSecret);
       const token = jwt.sign(***REMOVED***
         username: user.username
       ***REMOVED***, config.jwtSecret);
