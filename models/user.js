@@ -19,24 +19,24 @@ UserSchema.pre('save', function(callback) ***REMOVED***
   var user = this;
 
   // Break out if the password hasn't changed
-  if (!user.isModified('password')) return callback();
+  if (!user.isModified('password')) ***REMOVED***return callback();***REMOVED***
 
   // Password changed so we need to hash it
-  bcrypt.genSalt(5, function(err, salt) ***REMOVED***
-    if (err) return callback(err);
+  return bcrypt.genSalt(5, function(err, salt) ***REMOVED***
+    if (err) ***REMOVED***return callback(err);***REMOVED***
 
-    bcrypt.hash(user.password, salt, null, function(err, hash) ***REMOVED***
-      if (err) return callback(err);
+    return bcrypt.hash(user.password, salt, null, function(err, hash) ***REMOVED***
+      if (err) ***REMOVED***return callback(err);***REMOVED***
       user.password = hash;
-      callback();
+      return callback();
     ***REMOVED***);
   ***REMOVED***);
 ***REMOVED***);
 
 UserSchema.methods.verifyPassword = function(password, cb) ***REMOVED***
   bcrypt.compare(password, this.password, function(err, isMatch) ***REMOVED***
-    if (err) return cb(err);
-    cb(null, isMatch);
+    if (err) ***REMOVED***return cb(err);***REMOVED***
+    return cb(null, isMatch);
   ***REMOVED***);
 ***REMOVED***;
 
