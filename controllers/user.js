@@ -10,7 +10,7 @@ exports.postUsers = function(req, res) {
 
   user.save(function(err) {
     if (err)
-      res.send(err);
+      {res.send(err);}
 
     res.json({ message: 'Succesfully created new user!' });
   });
@@ -20,7 +20,7 @@ exports.postUsers = function(req, res) {
 exports.getUsers = function(req, res) {
   User.find(function(err, users) {
     if (err)
-      res.send(err);
+      {res.send(err);}
     res.json(users);
   });
 };
@@ -28,7 +28,7 @@ exports.getUsers = function(req, res) {
 exports.getUser = function(req, res) {
   User.findById(req.params.id, function(err,user) {
     if(err)
-      res.send(err);
+      {res.send(err);}
 
     res.json(user);
   })
