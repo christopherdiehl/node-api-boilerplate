@@ -93,5 +93,5 @@
   "devDependencies": {
     "eslint": "^3.13.1",
     "pre-commit": "^1.2.2"
-  },
+  }
 }
