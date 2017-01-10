@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 // app.use(passport.initialize());
 console.log(process.env.NODE_ENV);
-if(process.env.NODE_ENV == "production") {
+if(process.env.NODE_ENV === "production") {
   console.log('spool up a cluster here');
 }
 
