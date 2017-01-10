@@ -12,6 +12,10 @@ mongoose.connect(config.db);
 app.use(bodyParser.urlencoded(***REMOVED***extended : true***REMOVED***));
 app.use(bodyParser.json());
 // app.use(passport.initialize());
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV == "production") ***REMOVED***
+  console.log('spool up a cluster here');
+***REMOVED***
 
 /*Routes*/
 //test route
