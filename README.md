@@ -1,5 +1,5 @@
 #Node7-API-Boilerplate
-<p>A Node REST API Boilerplate for **small to medium** sized projects.</p>
+<p>A Node REST API Boilerplate for <b>small to medium</b> sized projects.</p>
 <p>Perfect for hackathons to small business projects </p>
 
 <div align="center">
