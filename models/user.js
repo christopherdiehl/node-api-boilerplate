@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-var Promise = require('bluebird');
-Promise.promisifyAll(mongoose);
+mongoose.Promise = require('bluebird');
 
 const UserSchema = new mongoose.Schema({
   username: {
