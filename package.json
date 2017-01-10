@@ -9,18 +9,21 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint" : "eslint --ignore-path .gitignore  --fix -- . "
   },
   "lint-staged": {
-    "*.js": "lint:js"
+    "*.js": "eslint"
   },
   "eslintConfig": {
     "env": {
-        "node": true
+      "mocha": true,
+      "node": true,
+      "es6": true
     },
     "rules": {
       "accessor-pairs" : 1,
-      "array-callback-return" : 1,
+      "array-callback-return" : 0,
       "block-scoped-var" : 1,
       "class-methods-use-this" : 1,
       "complexity" : 1,
@@ -37,7 +40,6 @@
       "no-else-return" : 1,
       "no-empty-function" : 1,
       "no-empty-pattern" : 1,
-      "eqeqeq" : 1,
       "no-eval" : 1,
       "no-extend-native" : 1,
       "no-extra-bind" : 1,
@@ -75,7 +77,7 @@
       "require-await" : 1,
       "vars-on-top" : 1,
       "wrap-iife" : 1,
-      "yoda" : 1,
+      "yoda" : 1
     }
   },
   "dependencies": {
