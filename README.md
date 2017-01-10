@@ -1,4 +1,4 @@
-#Node Node7-API-Boilerplate
+#Node7-API-Boilerplate
 <p>A Node REST API Boilerplate for *small to medium* sized projects.</p>
 <p>Perfect for hackathons to small business projects </p>
 
@@ -14,7 +14,7 @@
 </div>
 
 ##Setup
-1. `git clone git@github.com:CHRISTOPHERDIEHL/node7-api-boilerplate.git`
+1. `git clone git@github.com:christopherdiehl/node7-api-boilerplate.git`
 1. `npm install`
 1. `npm run start`
 1. *navigate to localhost:8080/api to confirm that the boilerplate is running*
