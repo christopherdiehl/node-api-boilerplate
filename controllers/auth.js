@@ -21,11 +21,13 @@ exports.authenticate = function(req, res) ***REMOVED***
       if (!isMatch) ***REMOVED*** return callback(null, false); ***REMOVED***
       // Success
       //this is where I need to return an actual token
+      console.log(config.jwtSecret);
       const token = jwt.sign(***REMOVED***
         username: user.username
       ***REMOVED***, config.jwtSecret);
       return res.json(***REMOVED***
-        token,
+        success: true,
+        token: token,
         username: user.username
       ***REMOVED***);
     ***REMOVED***);
