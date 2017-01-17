@@ -26,10 +26,16 @@ exports.getUsers = function(req, res) {
 };
 
 exports.getUser = function(req, res) {
-  User.findById(req.params.id, function(err,user) {
+  User.findOne({ username: username }, function(err,user) {
     if(err)
       {res.send(err);}
 
     res.json(user);
   })
+}
+
+exports.postUser = function(req, res) {
+  console.log(req.params.username);
+  console.log(req.user);
+  res.json(req.user);
 }
