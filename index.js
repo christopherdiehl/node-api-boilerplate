@@ -11,7 +11,7 @@ var router = express.Router();
 mongoose.connect(config.db);
 app.use(bodyParser.urlencoded(***REMOVED***extended : true***REMOVED***));
 app.use(bodyParser.json());
-// app.use(passport.initialize());
+
 console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === "production") ***REMOVED***
   console.log('spool up a cluster here');
@@ -31,6 +31,12 @@ router.route('/users').
   post(userController.postUsers).
   get(authController.isAuthenticated,userController.getUsers);
 
+router.route('/protected/user/:username').
+  get(userController.getUser).
+  post(userController.postUser);
+
+app.all('/api/protected/*', authController.isAuthenticated);
 app.use('/api',router);
+
 console.log('Listening on '+port);
 app.listen(port);

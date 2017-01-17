@@ -11,6 +11,11 @@ const UserSchema = new mongoose.Schema(***REMOVED***
    password: ***REMOVED***
      type: String,
      required: true
+   ***REMOVED***,
+   role: ***REMOVED***
+     type: String,
+     required: true,
+     default: 'user'
    ***REMOVED***
 ***REMOVED***);
 
