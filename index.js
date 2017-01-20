@@ -1,7 +1,6 @@
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const server = require('./server');
-console.log(process.env.NODE_ENV);
 
 if(process.env.NODE_ENV === "production") ***REMOVED***
   if(cluster.isMaster) ***REMOVED***
