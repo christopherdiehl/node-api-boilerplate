@@ -20,11 +20,14 @@ if(process.env.NODE_ENV === "production") ***REMOVED***
 /*Routes*/
 //test route
 router.get('/', function(req,res) ***REMOVED***
-  res.json(***REMOVED***message: 'welcome to our api!'***REMOVED***);
+  res.json(***REMOVED***message: 'welcome to node api boilerplate!'***REMOVED***);
 ***REMOVED***);
 
 router.route('/authenticate').
   post(authController.authenticate);
+
+router.route('/health').
+  get(function(req,res) ***REMOVED*** res.sendStatus(200) ***REMOVED***);
 
 // Create endpoint handlers for /users
 router.route('/users').
@@ -34,6 +37,8 @@ router.route('/users').
 router.route('/protected/user/:username').
   get(userController.getUser).
   post(userController.postUser);
+
+
 
 app.all('/api/protected/*', authController.isAuthenticated);
 app.use('/api',router);
