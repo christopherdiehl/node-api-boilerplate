@@ -1,47 +1,35 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const config = require('./config')
-const userController = require('./controllers/user');
-const authController = require('./controllers/auth');
-var app = express();
-var port = config.port || 8080;
-var router = express.Router();
-
-mongoose.connect(config.db);
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
-
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+const server = require('./server');
 console.log(process.env.NODE_ENV);
+
 if(process.env.NODE_ENV === "production") {
-  console.log('spool up a cluster here');
+  if(cluster.isMaster) {
+    console.log(`Master ${process.pid} is running`);
+    console.log(numCPUs);
+    for ( let i = 0; i < numCPUs; i++) {
+      cluster.fork();
+    }
+    cluster.on('exit',(worker,code,signal) => {
+      console.log(`worker ${process.pid} is dead`);
+      if(!signal){
+        console.log('forking new worker');
+        cluster.fork();
+      }
+    });
+  } else {
+    console.log(`worker ${process.pid} is up`);
+    process.on('exit',(code,signal) => {
+      if (signal) {
+        console.log(`worker was killed by signal: ${signal}`);
+      } else if (code !== 0) {
+        console.log(`worker exited with error code: ${code}`);
+      } else {
+        console.log('worker success!');
+      }
+    });
+    server.createServer();
+  }
+} else {
+  server.createServer();
 }
-
-/*Routes*/
-//test route
-router.get('/', function(req,res) {
-  res.json({message: 'welcome to node api boilerplate!'});
-});
-
-router.route('/authenticate').
-  post(authController.authenticate);
-
-router.route('/health').
-  get(function(req,res) { res.sendStatus(200) });
-
-// Create endpoint handlers for /users
-router.route('/users').
-  post(userController.postUsers).
-  get(authController.isAuthenticated,userController.getUsers);
-
-router.route('/protected/user/:username').
-  get(userController.getUser).
-  post(userController.postUser);
-
-
-
-app.all('/api/protected/*', authController.isAuthenticated);
-app.use('/api',router);
-
-console.log('Listening on '+port);
-app.listen(port);
