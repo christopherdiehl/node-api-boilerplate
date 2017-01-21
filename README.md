@@ -11,6 +11,13 @@
   <a href="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate#info=devDependencies">
     <img src="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
+  <!--Build Status -->
+  <a href="https://travis-ci.org/christopherdiehl/node7-api-boilerplate/branches">
+    <img src="https://travis-ci.org/christopherdiehl/node7-api-boilerplate.svg?branch=master" alt="travis build status" />
+  </a>
+  <!--Test Coverage -->
+  <a href='https://coveralls.io/github/christopherdiehl/node7-api-boilerplate?branch=master'><img src='https://coveralls.io/repos/github/christopherdiehl/node7-api-boilerplate/badge.svg?branch=master' alt='Coverage Status' /></a>
+
 </div>
 
 ##Setup
