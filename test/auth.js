@@ -19,8 +19,8 @@ describe('Create Test User',function() ***REMOVED***
   describe('#save',function() ***REMOVED***
     it('should save without error',(done) => ***REMOVED***
       user.save(function(err) ***REMOVED***
-        if (err) done (err);
-        else done();
+        if (err) ***REMOVED***done (err);***REMOVED***
+        else ***REMOVED***done();***REMOVED***
       ***REMOVED***);
     ***REMOVED***);
   ***REMOVED***);
@@ -55,8 +55,8 @@ describe ('Delete Test User', () => ***REMOVED***
   describe('#delete',function() ***REMOVED***
     it('should delete without error',(done) =>***REMOVED***
       user.remove(function(err) ***REMOVED***
-        if (err) done (err);
-        else done();
+        if (err) ***REMOVED***done (err);***REMOVED***
+        else ***REMOVED***done();***REMOVED***
       ***REMOVED***);
     ***REMOVED***);
   ***REMOVED***);
