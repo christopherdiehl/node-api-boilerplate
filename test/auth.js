@@ -19,8 +19,8 @@ describe('Create Test User',function() {
   describe('#save',function() {
     it('should save without error',(done) => {
       user.save(function(err) {
-        if (err) done (err);
-        else done();
+        if (err) {done (err);}
+        else {done();}
       });
     });
   });
@@ -55,8 +55,8 @@ describe ('Delete Test User', () => {
   describe('#delete',function() {
     it('should delete without error',(done) =>{
       user.remove(function(err) {
-        if (err) done (err);
-        else done();
+        if (err) {done (err);}
+        else {done();}
       });
     });
   });
