@@ -8,11 +8,11 @@
   "author": "Christopher Diehl",
   "license": "MIT",
   "scripts": {
-    "start" : "cross-env NODE_ENV=developement node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=developement node index.js",
+    "test": "mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
-    "start:prod" : "cross-env NODE_ENV=production node index.js",
-    "start:dev" : "cross-env NODE_ENV=developement node index.js"
+    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "start:dev": "cross-env NODE_ENV=developement node index.js"
   },
   "eslintConfig": {
     "env": {
@@ -93,7 +93,10 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "eslint": "^3.13.1",
+    "mocha": "^3.2.0",
     "pre-commit": "^1.2.2"
   }
 }
