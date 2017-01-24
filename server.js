@@ -28,8 +28,10 @@ exports.createServer = function() ***REMOVED***
 
   // Create endpoint handlers for /users
   router.route('/users').
-    post(userController.postUsers).
     get(authController.isAuthenticated,userController.getUsers);
+
+  router.route('/user').
+    post(userController.postUser);
 
   router.route('/protected/user/:username').
     get(userController.getUser).
