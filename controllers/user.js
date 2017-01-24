@@ -1,8 +1,8 @@
 // Load required packages
 var User = require('../models/user');
 
-// Create endpoint /api/users for POST
-exports.postUsers = function(req, res) {
+// Create endpoint /api/user for POST
+exports.postUser = function(req, res) {
   var user = new User({
     username: req.body.username,
     password: req.body.password
@@ -29,13 +29,6 @@ exports.getUser = function(req, res) {
   User.findOne({ username: username }, function(err,user) {
     if(err)
       {res.send(err);}
-
     res.json(user);
   })
-}
-
-exports.postUser = function(req, res) {
-  console.log(req.params.username);
-  console.log(req.user);
-  res.json(req.user);
 }
