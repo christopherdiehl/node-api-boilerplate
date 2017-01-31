@@ -25,6 +25,10 @@ exports.getUsers = function(req, res) {
   });
 };
 
+exports.replaceUser = function(req,res) {
+  res.json({message: 'foo'});
+}
+
 exports.updateUser = function(req, res) {
   User.findOne({username: username}, function(err, user) {
     if(err)
