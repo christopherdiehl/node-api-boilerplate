@@ -25,6 +25,19 @@ exports.getUsers = function(req, res) {
   });
 };
 
+exports.updateUser = function(req, res) {
+  User.findOne({username: username}, function(err, user) {
+    if(err)
+      {res.send(err);}
+    user.name = req.body.name;
+    user.save(function(err) {
+      if(err)
+        { res.send(err);}
+    });
+    res.json(user);
+  })
+}
+
 exports.getUser = function(req, res) {
   User.findOne({ username: username }, function(err,user) {
     if(err)

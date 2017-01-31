@@ -28,18 +28,17 @@ exports.createServer = function() {
 
   // Create endpoint handlers for /users
   router.route('/users').
-    get(authController.isAuthenticated,userController.getUsers);
+    get(userController.getUsers);
+    post(authController.isAuthenticated,userController.postUser);
 
-  router.route('/user').
-    post(userController.postUser);
-
-  router.route('/protected/user/:username').
+  router.route('/users/:username').
     get(userController.getUser).
-    post(userController.postUser);
+    post(authController.isAuthenticated,userController.replaceUser).
+    put(authController.isAuthenticated,userController.updateUser);
 
 
 
-  app.all('/api/protected/*', authController.isAuthenticated);
+  app.all('/api/protected/*', authController.isAuthenticated); //example of how to protect allroutes after certain url
   app.use('/api',router);
 
   console.log('Listening on '+port);
