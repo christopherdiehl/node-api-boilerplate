@@ -12,6 +12,11 @@ const UserSchema = new mongoose.Schema(***REMOVED***
      type: String,
      required: true
    ***REMOVED***,
+   name: ***REMOVED***
+     type: String,
+     required: true,
+     default: 'John Doe' //probs best to remove this in production
+   ***REMOVED***
    role: ***REMOVED***
      type: String,
      required: true,

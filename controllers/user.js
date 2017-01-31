@@ -25,6 +25,19 @@ exports.getUsers = function(req, res) ***REMOVED***
   ***REMOVED***);
 ***REMOVED***;
 
+exports.updateUser = function(req, res) ***REMOVED***
+  User.findOne(***REMOVED***username: username***REMOVED***, function(err, user) ***REMOVED***
+    if(err)
+      ***REMOVED***res.send(err);***REMOVED***
+    user.name = req.body.name;
+    user.save(function(err) ***REMOVED***
+      if(err)
+        ***REMOVED*** res.send(err);***REMOVED***
+    ***REMOVED***);
+    res.json(user);
+  ***REMOVED***)
+***REMOVED***
+
 exports.getUser = function(req, res) ***REMOVED***
   User.findOne(***REMOVED*** username: username ***REMOVED***, function(err,user) ***REMOVED***
     if(err)
