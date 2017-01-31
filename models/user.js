@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
      type: String,
      required: true,
      default: 'John Doe' //probs best to remove this in production
-   }
+   },
    role: {
      type: String,
      required: true,
