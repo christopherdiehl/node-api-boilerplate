@@ -28,7 +28,7 @@ exports.createServer = function() {
 
   // Create endpoint handlers for /users
   router.route('/users').
-    get(userController.getUsers);
+    get(userController.getUsers).
     post(authController.isAuthenticated,userController.postUser);
 
   router.route('/users/:username').
