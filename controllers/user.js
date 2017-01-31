@@ -25,6 +25,10 @@ exports.getUsers = function(req, res) ***REMOVED***
   ***REMOVED***);
 ***REMOVED***;
 
+exports.replaceUser = function(req,res) ***REMOVED***
+  res.json(***REMOVED***message: 'foo'***REMOVED***);
+***REMOVED***
+
 exports.updateUser = function(req, res) ***REMOVED***
   User.findOne(***REMOVED***username: username***REMOVED***, function(err, user) ***REMOVED***
     if(err)
