@@ -1,8 +1,8 @@
 // Load required packages
 var User = require('../models/user');
 
-// Create endpoint /api/users for POST
-exports.postUsers = function(req, res) ***REMOVED***
+// Create endpoint /api/user for POST
+exports.postUser = function(req, res) ***REMOVED***
   var user = new User(***REMOVED***
     username: req.body.username,
     password: req.body.password
@@ -25,15 +25,34 @@ exports.getUsers = function(req, res) ***REMOVED***
   ***REMOVED***);
 ***REMOVED***;
 
+exports.replaceUser = function(req,res) ***REMOVED***
+  res.json(***REMOVED***message: 'foo'***REMOVED***);
+***REMOVED***
+
+exports.updateUser = function(req, res) ***REMOVED***
+  User.findOne(***REMOVED***username: username***REMOVED***, function(err, user) ***REMOVED***
+    if(err)
+      ***REMOVED***res.send(err);***REMOVED***
+    user.name = req.body.name;
+    user.save(function(err) ***REMOVED***
+      if(err)
+        ***REMOVED*** res.send(err);***REMOVED***
+    ***REMOVED***);
+    res.json(user);
+  ***REMOVED***)
+***REMOVED***
+
+
+exports.sendResetToken = function(req,res) ***REMOVED***
+  console.log()
+  res.json(***REMOVED***message: 'hello'***REMOVED***);
+***REMOVED***
+
 exports.getUser = function(req, res) ***REMOVED***
   User.findOne(***REMOVED*** username: username ***REMOVED***, function(err,user) ***REMOVED***
     if(err)
       ***REMOVED***res.send(err);***REMOVED***
     res.json(user);
   ***REMOVED***)
-***REMOVED***
 
-exports.sendResetToken = function(req,res) ***REMOVED***
-  console.log()
-  res.json(***REMOVED***message: 'hello'***REMOVED***);
 ***REMOVED***
