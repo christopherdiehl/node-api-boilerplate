@@ -8,14 +8,17 @@ exports.authenticate = function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
   User.findOne({ username: username }, function (err, user) {
-    if (err) { return callback(err); }
+    if (err) {
+      console.log(err);
+      res.send(417);
+    }
 
     // No user found with that username
-    if (!user) { return callback(null, false); }
+    if (!user) {  res.send(404); }
 
     // Make sure the password is correct
     return user.verifyPassword(password, function(err, isMatch) {
-      if (err) { return callback(err); }
+      if (err) { res.send(401); }
 
       // Password did not match
       if (!isMatch) { return callback(null, false); }

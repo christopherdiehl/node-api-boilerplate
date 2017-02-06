@@ -14,34 +14,15 @@ const user = new User({
   username: user_credential,
   password: user_credential
 });
-
-describe('Create Test User',function() {
-  describe('#save',function() {
-    it('should save without error',(done) => {
-      user.save(function(err) {
-        if (err) {done (err);}
-        else {done();}
-      });
-    });
-  });
-});
-
-//simple one to start
-describe('/GET health', () =>{
-  it('it should return 200',(done) => {
-    chai.request(test_url).
-      get('/api/health').
-      end((err,res) => {
-        res.should.have.status(200);
-        done();
-      });
-  });
+//save user for auth testing
+user.save(function(err) {
+  if(err) {console.log(err);}
 });
 
 describe('/POST auth', () => {
   it('it should return token', (done) => {
     chai.request(test_url).
-      get('/api/health').
+      get('/api/authenticate').
       field('username',user_credential).
       field('password',user_credential).
       end((err,res) => {
@@ -49,33 +30,25 @@ describe('/POST auth', () => {
         done();
       })
   });
-});
-
-describe ('Delete Test User', () => {
-  describe('#delete',function() {
-    it('should delete without error',(done) =>{
-      user.remove(function(err) {
-        if (err) {done (err);}
-        else {done();}
-      });
-    });
+  it('should not return token for request with no headers',done => {
+    chai.request(test_url).
+    get('/api/authenticate').
+    end((err,res)=> {
+      res.should.have.status(404);
+    })
   });
-});
-
-describe ('Reset Password', () => {
-  describe('#reset',function() {
-    it('should not give a duplicate in 100 tests and no password should have length less than 12',(done)=>{
-      let passwords = [];
-      for (let i = 0; i < 100; i++){
-        let password = user.generateNewPassword();
-        if(password.length < 12){
-          done('insufficient password length');
-        }
-        if (passwords.includes(password)) {
-          done('Duplicate password after '+i+' passwords');
-        }
-      }
+  it('should return 401 when invalid password',done =>{
+    get('/api/authenticate').
+    field('username',user_credential).
+    field('password','invalid').
+    end((err,res) => {
+      res.should.have.status(401);
       done();
     });
   });
+});
+
+//remove created user after done testing
+user.remove(function(err) {
+  if (err) {console.log (err);}
 });
