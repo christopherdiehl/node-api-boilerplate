@@ -61,3 +61,21 @@ describe ('Delete Test User', () => {
     });
   });
 });
+
+describe ('Reset Password', () => {
+  describe('#reset',function() {
+    it('should not give a duplicate in 100 tests and no password should have length less than 12',(done)=>{
+      let passwords = [];
+      for (let i = 0; i < 100; i++){
+        let password = user.resetPassword();
+        if(password.length < 12){
+          done('insufficient password length');
+        }
+        if (passwords.includes(password)) {
+          done('Duplicate password after '+i+' passwords');
+        }
+      }
+      done();
+    });
+  });
+});

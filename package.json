@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=developement node index.js",
-    "test": "mocha --timeout 10000 && istanbul cover test",
+    "test": "mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
     "start:prod": "cross-env NODE_ENV=production node index.js",
     "start:dev": "cross-env NODE_ENV=developement node index.js",
@@ -98,7 +98,6 @@
     "chai-http": "^3.0.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.13.1",
-    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "pre-commit": "^1.2.2"
   }
