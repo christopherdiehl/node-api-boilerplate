@@ -36,8 +36,6 @@ exports.createServer = function() ***REMOVED***
     post(authController.isAuthenticated,userController.replaceUser).
     put(authController.isAuthenticated,userController.updateUser);
 
-
-
   app.all('/api/protected/*', authController.isAuthenticated); //example of how to protect allroutes after certain url
   app.use('/api',router);
 
