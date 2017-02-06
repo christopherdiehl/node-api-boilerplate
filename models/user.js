@@ -45,4 +45,9 @@ UserSchema.methods.verifyPassword = function(password, cb) ***REMOVED***
   ***REMOVED***);
 ***REMOVED***;
 
+UserSchema.statics.generateNewPassword = function(cb)***REMOVED***
+  let new_password = (Math.random().toString(36)+'00000000000000000').slice(2, 14);
+  return new_password;
+***REMOVED***
+
 module.exports = mongoose.model('User',UserSchema);
