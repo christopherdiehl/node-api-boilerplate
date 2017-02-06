@@ -33,7 +33,7 @@ exports.createServer = function() {
 
   router.route('/protected/user/:username').
     get(userController.getUser).
-    post(userController.postUser);
+    post(userController.postUsers);
 
 
 

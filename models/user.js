@@ -45,7 +45,7 @@ UserSchema.methods.verifyPassword = function(password, cb) {
   });
 };
 
-UserSchema.statics.generateNewPassword = function(cb){
+UserSchema.methods.generateNewPassword = function(cb){
   let new_password = (Math.random().toString(36)+'00000000000000000').slice(2, 14);
   return new_password;
 }

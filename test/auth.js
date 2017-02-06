@@ -67,7 +67,7 @@ describe ('Reset Password', () => {
     it('should not give a duplicate in 100 tests and no password should have length less than 12',(done)=>{
       let passwords = [];
       for (let i = 0; i < 100; i++){
-        let password = user.resetPassword();
+        let password = user.generateNewPassword();
         if(password.length < 12){
           done('insufficient password length');
         }
