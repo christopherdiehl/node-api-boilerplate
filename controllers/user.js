@@ -42,10 +42,17 @@ exports.updateUser = function(req, res) {
   })
 }
 
+
+exports.sendResetToken = function(req,res) {
+  console.log()
+  res.json({message: 'hello'});
+}
+
 exports.getUser = function(req, res) {
   User.findOne({ username: username }, function(err,user) {
     if(err)
       {res.send(err);}
     res.json(user);
   })
+
 }
