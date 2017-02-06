@@ -29,13 +29,11 @@ exports.getUser = function(req, res) ***REMOVED***
   User.findOne(***REMOVED*** username: username ***REMOVED***, function(err,user) ***REMOVED***
     if(err)
       ***REMOVED***res.send(err);***REMOVED***
-
     res.json(user);
   ***REMOVED***)
 ***REMOVED***
 
-exports.postUser = function(req, res) ***REMOVED***
-  console.log(req.params.username);
-  console.log(req.user);
-  res.json(req.user);
+exports.sendResetToken = function(req,res) ***REMOVED***
+  console.log()
+  res.json(***REMOVED***message: 'hello'***REMOVED***);
 ***REMOVED***
