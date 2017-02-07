@@ -2,17 +2,18 @@
   "name": "NodeApiBoilerplate",
   "version": "0.0.0",
   "description": "The backend for the serono question app",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "git@github.com:CHRISTOPHERDIEHL/NodeApiBoilerplate.git",
   "pre-commit": "eslint",
   "author": "Christopher Diehl",
   "license": "MIT",
   "scripts": ***REMOVED***
-    "start": "cross-env NODE_ENV=developement node index.js",
-    "test": "mocha --timeout 10000",
+    "start": "cross-env NODE_ENV=developement node server.js",
+    "start:dev": "nodemon ./bin/www",
+   "test": "mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
-    "start:prod": "cross-env NODE_ENV=production node index.js",
-    "start:dev": "cross-env NODE_ENV=developement node index.js",
+    "start:prod": "cross-env NODE_ENV=production node server.js",
+    "start:dev": "cross-env NODE_ENV=developement node server.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   ***REMOVED***,
   "eslintConfig": ***REMOVED***
@@ -99,6 +100,7 @@
     "coveralls": "^2.11.15",
     "eslint": "^3.13.1",
     "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2"
   ***REMOVED***
 ***REMOVED***

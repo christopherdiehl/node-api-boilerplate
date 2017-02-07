@@ -1,42 +1,37 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+const mongoose = require('mongoose');
 const config = require('./config')
-const userController = require('./controllers/user');
-const authController = require('./controllers/auth');
 
-exports.createServer = function() ***REMOVED***
-  var app = express();
-  var port = config.port || 8080;
-  var router = express.Router();
-
-  app.use(bodyParser.urlencoded(***REMOVED***extended : true***REMOVED***));
-  app.use(bodyParser.json());
-
-  /*Routes*/
-  //test route
-  router.get('/', function(req,res) ***REMOVED***
-    res.json(***REMOVED***message: 'welcome to node api boilerplate!'***REMOVED***);
-  ***REMOVED***);
-
-  router.route('/authenticate').
-    post(authController.authenticate);
-
-  router.route('/health').
-    get(function(req,res) ***REMOVED*** res.sendStatus(200) ***REMOVED***);
-
-  // Create endpoint handlers for /users
-  router.route('/users').
-    get(userController.getUsers).
-    post(authController.isAuthenticated,userController.postUser);
-
-  router.route('/users/:username').
-    get(userController.getUser).
-    post(authController.isAuthenticated,userController.replaceUser).
-    put(authController.isAuthenticated,userController.updateUser);
-
-  app.all('/api/protected/*', authController.isAuthenticated); //example of how to protect allroutes after certain url
-  app.use('/api',router);
-
-  console.log('Listening on '+port);
-  app.listen(port);
+mongoose.connect(config.db);
+if(process.env.NODE_ENV === "production") ***REMOVED***
+  if(cluster.isMaster) ***REMOVED***
+    console.log(`Master $***REMOVED***process.pid***REMOVED*** is running`);
+    console.log(numCPUs);
+    for ( let i = 0; i < numCPUs; i++) ***REMOVED***
+      cluster.fork();
+    ***REMOVED***
+    cluster.on('exit',(worker,code,signal) => ***REMOVED***
+      console.log(`worker $***REMOVED***process.pid***REMOVED*** is dead`);
+      if(!signal)***REMOVED***
+        console.log('forking new worker');
+        cluster.fork();
+      ***REMOVED***
+    ***REMOVED***);
+  ***REMOVED*** else ***REMOVED***
+    console.log(`worker $***REMOVED***process.pid***REMOVED*** is up`);
+    process.on('exit',(code,signal) => ***REMOVED***
+      if (signal) ***REMOVED***
+        console.log(`worker was killed by signal: $***REMOVED***signal***REMOVED***`);
+      ***REMOVED*** else if (code !== 0) ***REMOVED***
+        console.log(`worker exited with error code: $***REMOVED***code***REMOVED***`);
+      ***REMOVED*** else ***REMOVED***
+        console.log('worker success!');
+      ***REMOVED***
+    ***REMOVED***);
+    /*Setup app*/
+    require('./app')(config.port);
+  ***REMOVED***
+***REMOVED*** else ***REMOVED***
+  require('./app')(config.port);
 ***REMOVED***
