@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=developement node index.js",
-    "test": "mocha --timeout 10000",
+    "test": "mocha --timeout 10000 tests",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
     "start:prod": "cross-env NODE_ENV=production node index.js",
     "start:dev": "cross-env NODE_ENV=developement node index.js",

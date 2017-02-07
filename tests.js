@@ -2,14 +2,18 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server');
+const server = require('./server');
 const should = chai.should();
 const test_url = 'http://localhost:8080';
-const User = require('../models/user');
+const User = require('./models/user');
 const user_credential = '_auth_test_';
+const mongoose = require('mongoose');
+const config = require('./config')
 
+mongoose.connect(config.db);
 chai.use(chaiHttp);
-server.createServer()
+server.createServer();
+
 const user = new User({
   username: user_credential,
   password: user_credential
