@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config')
 const userController = require('./controllers/user');
@@ -10,7 +9,6 @@ exports.createServer = function() {
   var port = config.port || 8080;
   var router = express.Router();
 
-  mongoose.connect(config.db);
   app.use(bodyParser.urlencoded({extended : true}));
   app.use(bodyParser.json());
 
