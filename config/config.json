@@ -1,10 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": "chris",
+    "password": "chris",
+    "database": "node-api-dev",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgresql",
+    "port":5432
   },
   "test": {
     "username": "root",
