@@ -1,7 +1,10 @@
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const server = require('./server');
+const mongoose = require('mongoose');
+const config = require('./config')
 
+mongoose.connect(config.db);
 if(process.env.NODE_ENV === "production") ***REMOVED***
   if(cluster.isMaster) ***REMOVED***
     console.log(`Master $***REMOVED***process.pid***REMOVED*** is running`);
