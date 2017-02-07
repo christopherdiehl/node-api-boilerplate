@@ -14,7 +14,7 @@ exports.authenticate = function(req, res) {
     }
 
     // No user found with that username
-    if (!user) {  res.send(404); }
+    if (!user) { res.send(404); }
 
     // Make sure the password is correct
     return user.verifyPassword(password, function(err, isMatch) {
