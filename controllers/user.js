@@ -8,7 +8,8 @@ exports.postUser = function(req, res) {
     username: req.body.username,
     password: req.body.password
   });
-
+  console.log(user.username);
+  res.json(user);
 };
 
 // Create endpoint /api/users for GET

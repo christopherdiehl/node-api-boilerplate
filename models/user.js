@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true,
       hooks: {
         beforeSave: (user,options) => {
-          user.password = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+          user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null);
         }
       },
       instanceMethods: {
