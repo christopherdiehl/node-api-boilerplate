@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt-nodejs');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
@@ -21,21 +22,26 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'ADMIN',
     }
   }, {
+    hooks: {
+      beforeCreate: (user,options) => {
+        console.log('about to create');
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(), null);
+      },
+      beforeSave: (user,options) => {
+        console.log('about to save');
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(), null);
+      }
+    },
     classMethods: {
       associate: (models) => {
         // associations can be defined here
       },
-      freezeTableName: true,
-      hooks: {
-        beforeSave: (user,options) => {
-          user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null);
-        }
+    },
+    freezeTableName: true,
+    instanceMethods: {
+      validPassword: (password) => {
+        return bcrypt.compareSync(password, this.password);
       },
-      instanceMethods: {
-        validPassword: (password) => {
-          return bcrypt.compareSync(password, this.password);
-        },
-      }
     }
   });
   return User;

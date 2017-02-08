@@ -7,9 +7,10 @@ exports.postUser = function(req, res) {
   var user = User.create({
     username: req.body.username,
     password: req.body.password
+  }).then((user, created) => {
+    console.log(user.username);
+    res.json(user);
   });
-  console.log(user.username);
-  res.json(user);
 };
 
 // Create endpoint /api/users for GET
