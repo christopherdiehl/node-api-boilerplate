@@ -1,29 +1,15 @@
 // Load required packages
-const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 const config = require('../config');
+const User = require('../models').User;
 
 exports.authenticate = function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
-  User.findOne({ username: username }, function (err, user) {
-    if (err) {
-      console.log(err);
-      res.send(417);
-    }
-
-    // No user found with that username
-    if (!user) { res.send(404); }
-
+  User.findOne({ where: { username: username } }).then((user) => {
     // Make sure the password is correct
-    return user.verifyPassword(password, function(err, isMatch) {
-      if (err) { res.send(401); }
-
-      // Password did not match
-      if (!isMatch) { return callback(null, false); }
-      // Success
-      //this is where I need to return an actual token
+    if (user.verifyPassword(password)) {
       const token = jwt.sign({
         username: user.username
       }, config.jwtSecret);
@@ -32,7 +18,12 @@ exports.authenticate = function(req, res) {
         token: token,
         username: user.username
       });
-    });
+    }
+    console.log(password);
+    res.sendStatus(401);
+  }).catch((error) => {
+    console.log(error);
+    res.sendStatus(404);
   });
 
 }

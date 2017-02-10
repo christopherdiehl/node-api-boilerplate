@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     freezeTableName: true,
     instanceMethods: {
-      validPassword: (password) => {
+      verifyPassword: (password) => {
         return bcrypt.compareSync(password, this.password);
       },
     }
