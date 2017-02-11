@@ -15,7 +15,7 @@ exports.authenticate = function(req, res) {
       const token = jwt.sign({
         username: user.username
       }, config.jwtSecret);
-      return res.json({
+      res.json({
         success: true,
         token: token,
         username: user.username

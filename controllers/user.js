@@ -44,11 +44,17 @@ exports.sendResetToken = function(req,res) {
 
 exports.getUser = function(req, res) {
   let username = req.params.username;
-  User.findOne({ where: {username: username} }).then((user)=> {
-    res.json(user);
+  User.findOne({
+    where: {username: username}
+  }).then((user) => {
+    if(!user) {
+      res.sendStatus(404)
+    } else {
+      res.json(user);
+    }
   }).catch((err) =>{
     console.log(err);
-    res.send(404);
+    res.sendStatus(401);
   });
 
 }
