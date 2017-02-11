@@ -7,7 +7,9 @@ const User = require('../models').User;
 exports.authenticate = function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
-  User.findOne({ where: { username: username } }).then((user) => {
+  User.findOne({
+    where: { username: username }
+  }).then((user) => {
     // Make sure the password is correct
     if (user.verifyPassword(password)) {
       const token = jwt.sign({
