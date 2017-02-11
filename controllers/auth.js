@@ -21,13 +21,10 @@ exports.authenticate = function(req, res) {
         username: user.username
       });
     }
-    console.log(password);
-    res.sendStatus(401);
   }).catch((error) => {
-    console.log(error);
+    console.error(error);
     res.sendStatus(404);
   });
-
 }
 
 exports.isAuthenticated = expressJwt({ secret: config.jwtSecret });
