@@ -5,6 +5,7 @@ node_js:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database node-api-test;' -U postgres
+  - psql -c "CREATE USER test;" -U postgres
+  - psql -c 'create database node_api_test;' -U postgres
 script:
     - npm run test:travis
