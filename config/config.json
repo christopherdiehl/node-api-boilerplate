@@ -10,7 +10,7 @@
   "test": {
     "username": "postgress",
     "password": null,
-    "database": "node-api-dev",
+    "database": "node-api-test",
     "host": "127.0.0.1",
     "dialect": "postgresql",
     "port":5432
