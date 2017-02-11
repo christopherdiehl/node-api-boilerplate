@@ -1,36 +1,19 @@
 process.env.NODE_ENV = 'test';
-
+/*DEPS*/
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
-const test_url = 'http://localhost:8080';
-const User = require('./models/user');
-const user_credential = '_auth_test_';
-const mongoose = require('mongoose');
+/*LOCAL FILES*/
 const config = require('./config')
-
-mongoose.connect(config.db);
+const User = require('./models').User;
+/*CONSTANTS*/
+const test_url = 'http://localhost:'+config.port;
+const user_credential = '_auth_test_';
+/*SETUP SERVER*/
 chai.use(chaiHttp);
-
-/*START APP*/
 require('./app')(config.port);
 
-const user = new User({
-  username: user_credential,
-  password: user_credential
-});
-
-describe('Create Test User',function() {
-  describe('#save',function() {
-    it('should save without error',(done) => {
-      user.save(function(err) {
-        if (err) {done (err);}
-        else {done();}
-      });
-    });
-  });
-});
-
+let user = null;
 //simple one to start
 describe('/GET health', () =>{
   it('it should return 200',(done) => {
@@ -40,6 +23,19 @@ describe('/GET health', () =>{
         res.should.have.status(200);
         done();
       });
+  });
+});
+
+describe('#CREATE user', () => {
+  it('it should not fail', (done) => {
+    User.create({
+      username: user_credential,
+      password: user_credential
+    }).then((user) => {
+      done();
+    }).catch((err)=> {
+      done(err);
+    });
   });
 });
 
@@ -56,16 +52,13 @@ describe('/POST auth', () => {
   });
 });
 
-describe ('Delete Test User', () => {
-  describe('#delete',function() {
-    it('should delete without error',(done) =>{
-      user.remove(function(err) {
-        if (err) {done (err);}
-        else {done();}
-      });
-    });
+describe('#FIND 1', ()=> {
+  it('should find the user and assign it to variable',(done) => {
+    User.findOne({ where: {username: user_credential}}).
+      then((found)=> {user = found; done() }).
+      catch((err)=> {done(err)});
   });
-});
+})
 
 describe ('Reset Password', () => {
   describe('#reset',function() {
@@ -81,6 +74,16 @@ describe ('Reset Password', () => {
         }
       }
       done();
+    });
+  });
+});
+
+describe ('Delete Test User', () => {
+  describe('#delete',function() {
+    it('should delete without error',(done) =>{
+      user.destroy().then(()=>{
+        done();
+      }).catch((err)=> { done(err)}); 
     });
   });
 });

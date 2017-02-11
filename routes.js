@@ -16,10 +16,10 @@ module.exports = (router) => {
   /* Users */
   router.route('/users').
     get(userController.getUsers).
-    post(authController.isAuthenticated,userController.postUser);
+    post(userController.postUser);
 
   router.route('/users/:username').
-    get(userController.getUser).
+    get(authController.isAuthenticated,userController.getUser).
     post(authController.isAuthenticated,userController.replaceUser).
     put(authController.isAuthenticated,userController.updateUser);
 }

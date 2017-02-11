@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "chris",
+    "password": "chris",
+    "database": "node-api-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgresql",
+    "port":5432
+  },
+  "test": {
+    "username": "postgress",
+    "password": null,
+    "database": "node-api-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgresql",
+    "port":5432
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

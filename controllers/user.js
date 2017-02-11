@@ -1,28 +1,21 @@
 // Load required packages
-var User = require('../models/user');
+const User = require('../models').User;
 
 // Create endpoint /api/user for POST
 exports.postUser = function(req, res) {
-  var user = new User({
+  var user = User.create({
     username: req.body.username,
     password: req.body.password
-  });
-
-  user.save(function(err) {
-    if (err)
-      {res.send(err);}
-
-    res.json({ message: 'Succesfully created new user!' });
+  }).then((user, created) => {
+    res.json(user);
   });
 };
 
 // Create endpoint /api/users for GET
 exports.getUsers = function(req, res) {
-  User.find(function(err, users) {
-    if (err)
-      {res.send(err);}
+  User.findAll().then((users) => {
     res.json(users);
-  });
+  })
 };
 
 exports.replaceUser = function(req,res) {
@@ -30,16 +23,17 @@ exports.replaceUser = function(req,res) {
 }
 
 exports.updateUser = function(req, res) {
-  User.findOne({username: username}, function(err, user) {
-    if(err)
-      {res.send(err);}
-    user.name = req.body.name;
-    user.save(function(err) {
-      if(err)
-        { res.send(err);}
+  User.findOne({
+      where: {
+        name: req.body.name
+      }
+    }).then((user) => {
+      user.update({
+        name: req.body.name,
+      }).then((user) => {res.json(user)});
+    }).catch((err) => {
+      res.send(401);
     });
-    res.json(user);
-  })
 }
 
 
@@ -49,10 +43,18 @@ exports.sendResetToken = function(req,res) {
 }
 
 exports.getUser = function(req, res) {
-  User.findOne({ username: username }, function(err,user) {
-    if(err)
-      {res.send(err);}
-    res.json(user);
-  })
+  let username = req.params.username;
+  User.findOne({
+    where: {username: username}
+  }).then((user) => {
+    if(!user) {
+      res.sendStatus(404)
+    } else {
+      res.json(user);
+    }
+  }).catch((err) =>{
+    console.log(err);
+    res.sendStatus(401);
+  });
 
 }

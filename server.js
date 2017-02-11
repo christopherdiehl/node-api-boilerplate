@@ -1,9 +1,7 @@
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-const mongoose = require('mongoose');
 const config = require('./config')
 
-mongoose.connect(config.db);
 if(process.env.NODE_ENV === "production") {
   if(cluster.isMaster) {
     console.log(`Master ${process.pid} is running`);
