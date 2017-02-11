@@ -3,6 +3,8 @@ process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
+chai.use(chaiHttp);
+
 /*LOCAL FILES*/
 const config = require('./config')
 const User = require('./models').User;
@@ -15,16 +17,8 @@ require('./app')(config.port);
 
 let user = null;
 //simple one to start
-describe('/GET health', () =>{
-  it('it should return 200',(done) => {
-    chai.request(test_url).
-      get('/api/health').
-      end((err,res) => {
-        res.should.have.status(200);
-        done();
-      });
-  });
-});
+
+require('./tests/general.js');
 
 describe('#CREATE user', () => {
   it('it should not fail', (done) => {
@@ -83,7 +77,7 @@ describe ('Delete Test User', () => {
     it('should delete without error',(done) =>{
       user.destroy().then(()=>{
         done();
-      }).catch((err)=> { done(err)}); 
+      }).catch((err)=> { done(err)});
     });
   });
 });

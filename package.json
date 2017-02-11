@@ -10,7 +10,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
     "start:dev": "cross-env NODE_ENV=development node server.js",
-    "test": "mocha --timeout 10000",
+    "test": "cross-env NODE_ENV=test mocha --timeout 10000",
     "test:travis" :"cross-env NODE_ENV=test sequelize db:migrate && mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
     "start:prod": "cross-env NODE_ENV=production node server.js",
