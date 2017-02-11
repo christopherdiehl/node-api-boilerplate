@@ -3,6 +3,8 @@ node_js:
     - 7
     - 6
 services:
-  - mongodb
+  - postgresql
+before_script:
+  -psql -c 'create database node-api-test;' -U postgress
 script:
-    - npm run test
+    - npm run test:travis

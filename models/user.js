@@ -41,6 +41,9 @@ module.exports = (sequelize, DataTypes) => {
     instanceMethods: {
       verifyPassword: function(password) {
         return bcrypt.compareSync(password, this.password);
+      },
+      generateNewPassword: function() {
+        return (Math.random().toString(36)+'00000000000000000').slice(2, 14);
       }
     }
   });

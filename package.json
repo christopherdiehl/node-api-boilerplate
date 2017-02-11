@@ -11,6 +11,7 @@
     "start": "cross-env NODE_ENV=development node server.js",
     "start:dev": "cross-env NODE_ENV=development node server.js",
     "test": "mocha --timeout 10000",
+    "test:travis" :"sequelize db:migrate && mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
     "start:prod": "cross-env NODE_ENV=production node server.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
@@ -93,6 +94,7 @@
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.1",
+    "sequelize-cli": "^2.5.1",
     "winston": "^2.3.0"
   },
   "devDependencies": {
