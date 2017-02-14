@@ -20,12 +20,22 @@
 
 </div>
 
+##Requirements
+1. Working PostgreSQL instance (or sql db of your choice, make sure to update the config/config.json accordingly)
+1. Database config: config/config setup appropriately
+1. Sequelize-cli installed globally (Required for setup, but again you can save as dev dependency then create commands in package.json
+1. Node >= v6
+
 ##Setup
 1. `git clone git@github.com:christopherdiehl/node7-api-boilerplate.git`
 1. `npm install`
+1. `sequelize db:migrate`
 1. `npm run start`
 1. *navigate to localhost:8080/api to confirm that the boilerplate is running*
 
+
+<p>DB config: `config/config.json`</p>
+<p>Applicaiton Config: `config.js`</p>
 <p>To test in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
 
 <h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>
