@@ -35,7 +35,7 @@
 
 
 <p>DB config: `config/config.json`</p>
-<p>Applicaiton Config: `config.js`</p>
+<p>Application config: `config.js`</p>
 <p>To test in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
 
 <h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>
