@@ -8,9 +8,9 @@
     "port":5432
   },
   "test": {
-    "username": "postgress",
+    "username": "test",
     "password": null,
-    "database": "node-api-dev",
+    "database": "node_api_test",
     "host": "127.0.0.1",
     "dialect": "postgresql",
     "port":5432
