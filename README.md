@@ -1,4 +1,4 @@
-#Node7-API-Boilerplate
+#Node-API-Boilerplate
 <p>A Node REST API Boilerplate for <b>small to medium</b> sized projects.</p>
 <p>Perfect for hackathons to small business projects </p>
 
@@ -8,8 +8,8 @@
     <img src="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate.svg" alt="Dependency Status" />
   </a>
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate#info=devDependencies">
-    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate#info=devDependencies">
+    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
   <!--Build Status -->
   <a href="https://travis-ci.org/christopherdiehl/node7-api-boilerplate/branches">
