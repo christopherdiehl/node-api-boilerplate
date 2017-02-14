@@ -4,19 +4,19 @@
 
 <div align="center">
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate">
-    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate.svg" alt="Dependency Status" />
+  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate">
+    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate.svg" alt="Dependency Status" />
   </a>
   <!-- devDependency Status -->
   <a href="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate#info=devDependencies">
     <img src="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
   <!--Build Status -->
-  <a href="https://travis-ci.org/christopherdiehl/node7-api-boilerplate/branches">
-    <img src="https://travis-ci.org/christopherdiehl/node7-api-boilerplate.svg?branch=master" alt="travis build status" />
+  <a href="https://travis-ci.org/christopherdiehl/node-api-boilerplate/branches">
+    <img src="https://travis-ci.org/christopherdiehl/node-api-boilerplate.svg?branch=master" alt="travis build status" />
   </a>
   <!--Test Coverage -->
-  <a href='https://coveralls.io/github/christopherdiehl/node7-api-boilerplate?branch=master'><img src='https://coveralls.io/repos/github/christopherdiehl/node7-api-boilerplate/badge.svg?branch=master' alt='Coverage Status' /></a>
+  <a href='https://coveralls.io/github/christopherdiehl/node-api-boilerplate?branch=master'><img src='https://coveralls.io/repos/github/christopherdiehl/node-api-boilerplate/badge.svg?branch=master' alt='Coverage Status' /></a>
 
 </div>
 
@@ -27,7 +27,7 @@
 1. Node >= v6
 
 ##Setup
-1. `git clone git@github.com:christopherdiehl/node7-api-boilerplate.git`
+1. `git clone git@github.com:christopherdiehl/node-api-boilerplate.git`
 1. `npm install`
 1. `sequelize db:migrate`
 1. `npm run start`
