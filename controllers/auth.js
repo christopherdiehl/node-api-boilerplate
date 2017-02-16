@@ -7,7 +7,7 @@ const User = require('../models').User;
 exports.authenticate = function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
-  if(password === null || username === null){
+  if(password == null || username == null){
     res.sendStatus(400);
     return;
   }
