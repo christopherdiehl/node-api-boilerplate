@@ -42,7 +42,6 @@ exports.updateUser = function(req, res) {
     });
 }
 
-//not sure how I feel about this callback setup
 exports.sendResetToken = function(req,res) {
   const username = req.headers.username;
   User.findOne({
@@ -53,12 +52,18 @@ exports.sendResetToken = function(req,res) {
       resetToken: token,
     });
   }).then((user) => {
-    email.sendResetToken(user.email,user.resetToken);
+    return email.sendResetToken(user.email,user.resetToken);
+  }).then((info) => {
+    console.log('Message %s sent: %s', info.messageId, info.response);
     res.sendStatus(200);
-  }).catch((err) => { //add better errors here
-    console.error(err);
-    res.sendStatus(401);
-  })
+  }).catch((err) => {
+    if(err instanceof TypeError) {
+      res.sendStatus(404);
+    } else {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  });
 }
 exports.resetPassword = function(req,res) {
   const username = req.headers.username;
