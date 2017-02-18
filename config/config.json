@@ -7,9 +7,10 @@
     "dialect": "postgresql",
     "port":5432,
     "jwtSecret": "production shhh don't tell anyone",
-    "appPort" : 8080
+    "appPort" : 8080,
+    "email" : "foo@example.com",
+    "emailPass" : "foobar"
   },
-  jlljk
   "test": {
     "username": "test",
     "password": "test",
@@ -18,7 +19,9 @@
     "dialect": "postgresql",
     "port":5432,
     "jwtSecret": "production shhh don't tell anyone",
-    "appPort" : 8080
+    "appPort" : 8080,
+    "email" : "foo@example.com",
+    "emailPass" : "foobar"
   },
   "production": {
     "username": "root",
@@ -27,6 +30,8 @@
     "host": "127.0.0.1",
     "dialect": "mysql",
     "jwtSecret": "production shhh don't tell anyone",
-    "appPort" : 8080
+    "appPort" : 8080,
+    "email" : "foo@example.com",
+    "emailPass" : "foobar"
   }
 }
