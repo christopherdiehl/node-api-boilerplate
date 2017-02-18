@@ -9,6 +9,7 @@
     "jwtSecret": "production shhh don't tell anyone",
     "appPort" : 8080
   },
+  ss
   "test": {
     "username": "test",
     "password": "test",
