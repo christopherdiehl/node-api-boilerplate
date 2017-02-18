@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 #Node7-API-Boilerplate
-=======
-#Node-API-Boilerplate
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
 <p>A Node REST API Boilerplate for <b>small to medium</b> sized projects.</p>
 <p>Perfect for hackathons to small business projects </p>
 
 <div align="center">
   <!-- Dependency Status -->
-<<<<<<< HEAD
   <a href="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate">
     <img src="https://david-dm.org/CHRISTOPHERDIEHL/node7-api-boilerplate.svg" alt="Dependency Status" />
   </a>
@@ -31,40 +26,6 @@
 1. `npm run start`
 1. *navigate to localhost:8080/api to confirm that the boilerplate is running*
 
-=======
-  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate">
-    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate.svg" alt="Dependency Status" />
-  </a>
-  <!-- devDependency Status -->
-  <a href="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate#info=devDependencies">
-    <img src="https://david-dm.org/CHRISTOPHERDIEHL/node-api-boilerplate/dev-status.svg" alt="devDependency Status" />
-  </a>
-  <!--Build Status -->
-  <a href="https://travis-ci.org/christopherdiehl/node-api-boilerplate/branches">
-    <img src="https://travis-ci.org/christopherdiehl/node-api-boilerplate.svg?branch=master" alt="travis build status" />
-  </a>
-  <!--Test Coverage -->
-  <a href='https://coveralls.io/github/christopherdiehl/node-api-boilerplate?branch=master'><img src='https://coveralls.io/repos/github/christopherdiehl/node-api-boilerplate/badge.svg?branch=master' alt='Coverage Status' /></a>
-
-</div>
-
-##Requirements
-1. Working PostgreSQL instance (or sql db of your choice, make sure to update the config/config.json accordingly)
-1. Database config: config/config setup appropriately
-1. Sequelize-cli installed globally (Required for setup, but again you can save as dev dependency then create commands in package.json
-1. Node >= v6
-
-##Setup
-1. `git clone git@github.com:christopherdiehl/node-api-boilerplate.git`
-1. `npm install`
-1. `sequelize db:migrate`
-1. `npm run start`
-1. *navigate to localhost:8080/api to confirm that the boilerplate is running*
-
-
-<p>DB config: `config/config.json`</p>
-<p>Application config: `config.js`</p>
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
 <p>To test in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
 
 <h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>

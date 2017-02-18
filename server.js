@@ -1,43 +1,7 @@
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-<<<<<<< HEAD
-const mongoose = require('mongoose');
-const config = require('./config')
-
-mongoose.connect(config.db);
-if(process.env.NODE_ENV === "production") ***REMOVED***
-  if(cluster.isMaster) ***REMOVED***
-    console.log(`Master $***REMOVED***process.pid***REMOVED*** is running`);
-    console.log(numCPUs);
-    for ( let i = 0; i < numCPUs; i++) ***REMOVED***
-      cluster.fork();
-    ***REMOVED***
-    cluster.on('exit',(worker,code,signal) => ***REMOVED***
-      console.log(`worker $***REMOVED***process.pid***REMOVED*** is dead`);
-      if(!signal)***REMOVED***
-        console.log('forking new worker');
-        cluster.fork();
-      ***REMOVED***
-    ***REMOVED***);
-  ***REMOVED*** else ***REMOVED***
-    console.log(`worker $***REMOVED***process.pid***REMOVED*** is up`);
-    process.on('exit',(code,signal) => ***REMOVED***
-      if (signal) ***REMOVED***
-        console.log(`worker was killed by signal: $***REMOVED***signal***REMOVED***`);
-      ***REMOVED*** else if (code !== 0) ***REMOVED***
-        console.log(`worker exited with error code: $***REMOVED***code***REMOVED***`);
-      ***REMOVED*** else ***REMOVED***
-        console.log('worker success!');
-      ***REMOVED***
-    ***REMOVED***);
-    /*Setup app*/
-    require('./app')(config.port);
-  ***REMOVED***
-***REMOVED*** else ***REMOVED***
-  require('./app')(config.port);
-***REMOVED***
-=======
-const config = require('./config')
+const env = process.env.NODE_ENV || 'development';
+const config = require('./config/config')[env];
 
 if(process.env.NODE_ENV === "production") {
   if(cluster.isMaster) {
@@ -65,9 +29,8 @@ if(process.env.NODE_ENV === "production") {
       }
     });
     /*Setup app*/
-    require('./app')(config.port);
+    require('./app')(config.appPort);
   }
 } else {
-  require('./app')(config.port);
+  require('./app')(config.appPort);
 }
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2

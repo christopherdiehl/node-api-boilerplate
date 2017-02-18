@@ -1,39 +1,17 @@
-<<<<<<< HEAD
-***REMOVED***
-=======
 {
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
-  "name": "NodeApiBoilerplate",
+  "name": "node-api-boilerplate",
   "version": "0.0.0",
-  "description": "The backend for the serono question app",
+  "description": "A boilerplate for node REST APIs",
   "main": "server.js",
-  "repository": "git@github.com:CHRISTOPHERDIEHL/NodeApiBoilerplate.git",
+  "repository": "https://github.com/christopherdiehl/node-api-boilerplate",
   "pre-commit": "eslint",
   "author": "Christopher Diehl",
   "license": "MIT",
-<<<<<<< HEAD
-  "scripts": ***REMOVED***
-    "start": "cross-env NODE_ENV=developement node server.js",
-    "start:dev": "nodemon ./bin/www",
-   "test": "mocha --timeout 10000",
-    "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
-    "start:prod": "cross-env NODE_ENV=production node server.js",
-    "start:dev": "cross-env NODE_ENV=developement node server.js",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-  ***REMOVED***,
-  "eslintConfig": ***REMOVED***
-    "env": ***REMOVED***
-      "mocha": true,
-      "node": true,
-      "es6": true
-    ***REMOVED***,
-    "rules": ***REMOVED***
-=======
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
     "start:dev": "cross-env NODE_ENV=development node server.js",
     "test": "cross-env NODE_ENV=test mocha --timeout 10000",
-    "test:travis" :"cross-env NODE_ENV=test sequelize db:migrate && mocha --timeout 10000",
+    "test:travis": "cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test mocha --timeout 10000",
     "eslint": "eslint --ignore-path .gitignore  --fix -- . ",
     "start:prod": "cross-env NODE_ENV=production node server.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
@@ -45,7 +23,6 @@
       "es6": true
     },
     "rules": {
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
       "accessor-pairs": 1,
       "array-callback-return": 0,
       "block-scoped-var": 1,
@@ -102,18 +79,10 @@
       "vars-on-top": 1,
       "wrap-iife": 1,
       "yoda": 1
-<<<<<<< HEAD
-    ***REMOVED***
-  ***REMOVED***,
-  "dependencies": ***REMOVED***
-    "bcrypt-nodejs": "0.0.3",
-    "bluebird": "^3.4.7",
-=======
     }
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
     "body-parser": "^1.15.2",
     "cross-env": "^3.1.4",
     "crypto": "0.0.3",
@@ -122,11 +91,7 @@
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.6",
     "morgan": "^1.7.0",
-<<<<<<< HEAD
-    "winston": "^2.3.0"
-  ***REMOVED***,
-  "devDependencies": ***REMOVED***
-=======
+    "nodemailer": "^3.1.3",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.1",
@@ -134,7 +99,6 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "coveralls": "^2.11.15",
@@ -142,10 +106,5 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2"
-<<<<<<< HEAD
-  ***REMOVED***
-***REMOVED***
-=======
   }
 }
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2

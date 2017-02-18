@@ -1,72 +1,19 @@
 // Load required packages
-<<<<<<< HEAD
-var User = require('../models/user');
-
-// Create endpoint /api/user for POST
-exports.postUser = function(req, res) ***REMOVED***
-  var user = new User(***REMOVED***
-    username: req.body.username,
-    password: req.body.password
-  ***REMOVED***);
-
-  user.save(function(err) ***REMOVED***
-    if (err)
-      ***REMOVED***res.send(err);***REMOVED***
-
-    res.json(***REMOVED*** message: 'Succesfully created new user!' ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***;
-
-// Create endpoint /api/users for GET
-exports.getUsers = function(req, res) ***REMOVED***
-  User.find(function(err, users) ***REMOVED***
-    if (err)
-      ***REMOVED***res.send(err);***REMOVED***
-    res.json(users);
-  ***REMOVED***);
-***REMOVED***;
-
-exports.replaceUser = function(req,res) ***REMOVED***
-  res.json(***REMOVED***message: 'foo'***REMOVED***);
-***REMOVED***
-
-exports.updateUser = function(req, res) ***REMOVED***
-  User.findOne(***REMOVED***username: username***REMOVED***, function(err, user) ***REMOVED***
-    if(err)
-      ***REMOVED***res.send(err);***REMOVED***
-    user.name = req.body.name;
-    user.save(function(err) ***REMOVED***
-      if(err)
-        ***REMOVED*** res.send(err);***REMOVED***
-    ***REMOVED***);
-    res.json(user);
-  ***REMOVED***)
-***REMOVED***
-
-
-exports.sendResetToken = function(req,res) ***REMOVED***
-  console.log()
-  res.json(***REMOVED***message: 'hello'***REMOVED***);
-***REMOVED***
-
-exports.getUser = function(req, res) ***REMOVED***
-  User.findOne(***REMOVED*** username: username ***REMOVED***, function(err,user) ***REMOVED***
-    if(err)
-      ***REMOVED***res.send(err);***REMOVED***
-    res.json(user);
-  ***REMOVED***)
-
-***REMOVED***
-=======
 const User = require('../models').User;
+const email = require('../email');
 
 // Create endpoint /api/user for POST
 exports.postUser = function(req, res) {
   var user = User.create({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName
   }).then((user, created) => {
     res.json(user);
+  }).catch((err) =>{
+    res.send(400);
   });
 };
 
@@ -95,10 +42,46 @@ exports.updateUser = function(req, res) {
     });
 }
 
-
+//not sure how I feel about this callback setup
 exports.sendResetToken = function(req,res) {
-  console.log()
-  res.json({message: 'hello'});
+  const username = req.headers.username;
+  User.findOne({
+    where: {username: username}
+  }).then((user) => {
+    let token = user.generateResetToken();
+    return user.update({
+      resetToken: token,
+    });
+  }).then((user) => {
+    email.sendResetToken(user.email,user.resetToken);
+    res.sendStatus(200);
+  }).catch((err) => { //add better errors here
+    console.error(err);
+    res.sendStatus(401);
+  })
+}
+exports.resetPassword = function(req,res) {
+  const username = req.headers.username;
+  const newPassword = req.headers.password;
+  const resetToken = req.headers.resetToken;
+  let status = 400;
+  User.findOne({
+    where: {username: username}
+  }).then((user) => {
+    if(user.resetToken === resetToken){
+      user.update({
+        password: newPassword
+      });
+      status = 200;
+    } else {
+      status = 401;
+    }
+  }).catch((err) => {
+    console.error(err);
+    status = 400;
+  });
+
+  res.sendStatus(status);
 }
 
 exports.getUser = function(req, res) {
@@ -117,4 +100,3 @@ exports.getUser = function(req, res) {
   });
 
 }
->>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2

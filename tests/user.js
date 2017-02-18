@@ -62,17 +62,17 @@ module.exports = (test_url,user_credential) => {
     });
   })
 
-  describe ('Reset Password', () => {
+  describe ('Reset Token Generation', () => {
     describe('#reset',function() {
       it('should not give a duplicate in 100 tests and no password should have length less than 12',(done)=>{
-        let passwords = [];
+        let resetTokens = [];
         for (let i = 0; i < 100; i++){
-          let password = user.generateNewPassword();
-          if(password.length < 12){
-            done('insufficient password length');
+          let resetToken = user.generateResetToken();
+          if(resetToken.length < 12){
+            done('insufficient resetToken length');
           }
-          if (passwords.includes(password)) {
-            done('Duplicate password after '+i+' passwords');
+          if (resetTokens.includes(resetToken)) {
+            done('Duplicate resetToken after '+i+' resetTokens');
           }
         }
         done();

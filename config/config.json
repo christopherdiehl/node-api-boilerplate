@@ -5,7 +5,9 @@
     "database": "node-api-dev",
     "host": "127.0.0.1",
     "dialect": "postgresql",
-    "port":5432
+    "port":5432,
+    "jwtSecret": "production shhh don't tell anyone",
+    "appPort" : 8080
   },
   "test": {
     "username": "test",
@@ -13,13 +15,17 @@
     "database": "node_api_test",
     "host": "127.0.0.1",
     "dialect": "postgresql",
-    "port":5432
+    "port":5432,
+    "jwtSecret": "production shhh don't tell anyone",
+    "appPort" : 8080
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "jwtSecret": "production shhh don't tell anyone",
+    "appPort" : 8080
   }
 }
