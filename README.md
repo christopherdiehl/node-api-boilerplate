@@ -23,10 +23,15 @@
 ##Setup
 1. `git clone git@github.com:christopherdiehl/node-api-boilerplate.git`
 1. `npm install`
+1. `Install PostgreSQL and update config.json accordingly`
+1. `Install sequelize-cli and run sequelize db:migrate`
 1. `npm run start`
 1. *navigate to localhost:8080/api to confirm that the boilerplate is running*
 
-<p>To test in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
+<p> Authentication is done with JWT <br /> Please update the config file located in config/config.json </p>
+
+<p> By default this boilerplate uses nodemailer to send the reset token </p>
+<p>To test authenticated routes in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
 
 <h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>
 
