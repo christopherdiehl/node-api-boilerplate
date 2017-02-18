@@ -1,12 +1,12 @@
 'use strict';
 //In future might add mailOptions here
 const nodemailer = require('nodemailer');
-const secrets = require('./.secrets');
+// const secrets = require('./.secrets');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: secrets.nodemailer_email,
-        pass: secrets.nodemailer_pass
+        user: 'secrets.nodemailer_email',
+        pass: 'secrets.nodemailer_pass'
     }
 });
 
