@@ -3,6 +3,9 @@ node_js:
     - 7
     - 6
 services:
-  - mongodb
+  - postgresql
+before_script:
+  - psql -c "CREATE USER test WITH PASSWORD 'test';" -U postgres
+  - psql -c 'create database node_api_test;' -U postgres
 script:
-    - npm run test
+    - npm run test:travis

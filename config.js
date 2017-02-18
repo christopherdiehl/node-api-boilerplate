@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if (process.env.NODE_ENV === "production") ***REMOVED***
   module.exports = ***REMOVED***
     db: 'localhost:27017',
@@ -11,3 +12,18 @@ if (process.env.NODE_ENV === "production") ***REMOVED***
     jwtSecret: "shhh don't tell anyone"
   ***REMOVED***
 ***REMOVED***
+=======
+if (process.env.NODE_ENV === "production") {
+  module.exports = {
+    db: 'localhost:27017',
+    port: 8080,
+    jwtSecret: "production shhh don't tell anyone"
+  }
+} else {
+  module.exports = {
+    db: 'localhost:27017',
+    port: 8080,
+    jwtSecret: "shhh don't tell anyone"
+  }
+}
+>>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2

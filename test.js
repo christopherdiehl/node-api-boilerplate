@@ -1,5 +1,6 @@
 process.env.NODE_ENV = 'test';
 
+<<<<<<< HEAD
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
@@ -84,3 +85,18 @@ describe ('Reset Password', () => ***REMOVED***
     ***REMOVED***);
   ***REMOVED***);
 ***REMOVED***);
+=======
+/*LOCAL FILES*/
+const config = require('./config')
+const User = require('./models').User;
+/*CONSTANTS*/
+const test_url = 'http://localhost:'+config.port;
+const user_credential = '_auth_test_';
+
+require('./app')(config.port);
+
+//simple one to start
+
+require('./tests/general.js')(test_url);
+require('./tests/user.js')(test_url,user_credential);
+>>>>>>> 669226f89a01c8b0e3009379be583dc164a860a2
