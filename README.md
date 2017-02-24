@@ -31,4 +31,3 @@
 <p> Authentication done with JWT <br /> Please update the config file located in <b>config/config.json</b> </p>
 <p> By default this boilerplate uses nodemailer to send the reset token </p>
 <p>To test authenticated routes in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
-<h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>
