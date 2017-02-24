@@ -1,6 +1,6 @@
 {
   "name": "node-api-boilerplate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A boilerplate for node REST APIs",
   "main": "server.js",
   "repository": "https://github.com/christopherdiehl/node-api-boilerplate",

@@ -32,5 +32,3 @@
 <p> By default this boilerplate uses nodemailer to send the reset token </p>
 <p>To test authenticated routes in postman: set Header Key = Authorization and Header value = "Bearer $[key]"</p>
 <h4>This repo is not finished and is subject to major change. Please do not use until v1 is released</h4>
-
-This project is licensed under the MIT license, Copyright (c) 2016 Christopher Diehl. For more information see LICENSE.md.
