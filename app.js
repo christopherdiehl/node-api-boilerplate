@@ -19,5 +19,5 @@ module.exports = (port) => {
   app.use('/api',router);
 
   console.log('Listening on '+port);
-  app.listen(port);npm
+  app.listen(port);
 }
