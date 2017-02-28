@@ -84,6 +84,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "cross-env": "^3.1.4",
     "crypto": "0.0.3",
     "express": "^4.14.0",
