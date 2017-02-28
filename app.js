@@ -15,8 +15,6 @@ module.exports = (port) => {
 
   /*SETUP ROUTES*/
   require('./routes')(router);
-
-
   app.all('/api/protected/*', authController.isAuthenticated); //example of how to protect allroutes after certain url
   app.use('/api',router);
 
