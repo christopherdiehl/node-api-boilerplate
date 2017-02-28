@@ -6,9 +6,10 @@ const cors = require('cors');
 
 module.exports = (port) => {
   var app = express();
-  app.use(cors());
   var port = port || 8080;
   var router = express.Router();
+
+  app.use(cors());
   app.use(bodyParser.urlencoded({extended : true}));
   app.use(bodyParser.json());
 
@@ -20,5 +21,5 @@ module.exports = (port) => {
   app.use('/api',router);
 
   console.log('Listening on '+port);
-  app.listen(port);
+  app.listen(port);npm
 }
