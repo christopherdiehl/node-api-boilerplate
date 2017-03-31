@@ -79,9 +79,9 @@ exports.resetPassword = function(req,res) {
         password: newPassword
       });
       status = 200;
-    } else {
+    } 
       throw "INVALID_TOKEN";
-    }
+    
   }).then((user) => {
     status = 200;
     res.sendStatus(status);
