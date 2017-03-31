@@ -34,9 +34,10 @@ exports.updateUser = function(req, res) {
         name: req.body.name
       }
     }).then((user) => {
-      user.update({
+      return user.update({
         name: req.body.name,
-      }).then((user) => {res.json(user)});
+      });
+    }).then((user) => {res.json(user)
     }).catch((err) => {
       res.send(401);
     });
@@ -74,19 +75,25 @@ exports.resetPassword = function(req,res) {
     where: {username: username}
   }).then((user) => {
     if(user.resetToken === resetToken){
-      user.update({
+      return user.update({
         password: newPassword
       });
       status = 200;
     } else {
-      status = 401;
+      throw "INVALID_TOKEN";
     }
+  }).then((user) => {
+    status = 200;
+    res.sendStatus(status);
   }).catch((err) => {
-    console.error(err);
-    status = 400;
+    if(err === "INVALID_TOKEN") {
+      status = 401;
+    } else {
+      status = 400;
+    }
+    res.sendStatus(400);
   });
 
-  res.sendStatus(status);
 }
 
 exports.getUser = function(req, res) {
