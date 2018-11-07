@@ -1,3 +1,5 @@
+<h1>DEPRECATED</h1>
+
 <h1>Node-API-Boilerplate</h1>
 <p>A Node REST API Boilerplate for <b>small to medium</b> sized projects.</p>
 
